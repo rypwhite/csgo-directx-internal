@@ -1,8 +1,5 @@
-#define _CRT_SECURE_NO_WARNINGS
-
 #include <Windows.h>
 #include <iostream>
-
 
 DWORD WINAPI DllThread(PVOID pThreadParameter)
 {
@@ -13,9 +10,9 @@ DWORD WINAPI DllThread(PVOID pThreadParameter)
     AllocConsole();
     SetConsoleTitle(L"CS:GO D3D9 Internal");
     //avoid _CRT_SECURE_NO_WARNINGS by using freopen_s
-    freopen("CONIN$", "r", stdin);
-    freopen("CONOUT$", "w", stdout);
-    freopen("CONOUT$", "w", stderr);
+    freopen_s((FILE**)stdin, "CONIN$", "r", stdin);
+    freopen_s((FILE**)stdin, "CONOUT$", "w", stdout);
+    freopen_s((FILE**)stdin, "CONOUT$", "w", stderr);
 
     std::cout << "Console allocated" << std::endl;
 
