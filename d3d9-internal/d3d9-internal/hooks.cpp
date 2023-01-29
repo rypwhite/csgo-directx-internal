@@ -6,7 +6,7 @@ hooks::EndScene_t endscene_original = nullptr;
 
 //https://learn.microsoft.com/en-us/windows/win32/api/d3d9/nf-d3d9-idirect3ddevice9-endscene
 HRESULT __stdcall hooks::hkEndScene(IDirect3DDevice9* device) {
-	return endscene_original(nullptr, device);
+	return endscene_original(Interfaces.g_D3DDevice9, device);
 }
 
 void hooks::initialise() {
