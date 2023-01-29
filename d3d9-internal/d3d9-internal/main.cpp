@@ -1,7 +1,23 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <Windows.h>
+#include <iostream>
+
 
 DWORD WINAPI DllThread(PVOID pThreadParameter)
 {
+    //wait until all modules are loaded into the game (serverbrowser.dll is the last one)
+    while (!GetModuleHandle(L"serverbrowser.dll"))
+        Sleep(100);
+
+    AllocConsole();
+    SetConsoleTitle(L"CS:GO D3D9 Internal");
+    //avoid _CRT_SECURE_NO_WARNINGS by using freopen_s
+    freopen("CONIN$", "r", stdin);
+    freopen("CONOUT$", "w", stdout);
+    freopen("CONOUT$", "w", stderr);
+
+    std::cout << "Console allocated" << std::endl;
 
     return TRUE;
 }
