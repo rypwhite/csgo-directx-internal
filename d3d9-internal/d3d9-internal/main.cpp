@@ -1,5 +1,11 @@
 #include <Windows.h>
 
+DWORD WINAPI DllThread(PVOID pThreadParameter)
+{
+
+    return TRUE;
+}
+
 //https://learn.microsoft.com/en-us/windows/win32/dlls/dllmain
 BOOL WINAPI DllMain(
     HINSTANCE hinstDLL,  // handle to DLL module
@@ -12,6 +18,8 @@ BOOL WINAPI DllMain(
     case DLL_PROCESS_ATTACH:
         // Initialize once for each new process.
         // Return FALSE to fail DLL load.
+        DisableThreadLibraryCalls(hinstDLL);
+        CreateThread(0, 0, (LPTHREAD_START_ROUTINE)DllThread, hinstDLL, 0, 0);
         break;
 
     case DLL_THREAD_ATTACH:
