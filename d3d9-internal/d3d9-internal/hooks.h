@@ -4,6 +4,7 @@
 #include <stdexcept>
 
 #include "interfaces.h"
+#include "rendermanager.h"
 
 #include "minhook/MinHook.h"
 

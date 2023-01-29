@@ -1,6 +1,7 @@
 #include "hooks.h"
 
 CInterfaces Interfaces;
+CRenderManager RenderManager;
 
 hooks::EndScene_t endscene_original = nullptr;
 
@@ -24,6 +25,7 @@ HRESULT __stdcall hooks::hkEndScene(IDirect3DDevice9* device) {
 	device->SetSamplerState(NULL, D3DSAMP_SRGBTEXTURE, NULL);
 
 	//surface is ready for rendering
+	RenderManager.DrawText(25, 25, D3DCOLOR_ARGB(255, 255, 0, 0), "CSGO D3D9 Example");
 
 	//https://www.unknowncheats.me/forum/counterstrike-global-offensive/292735-panorama-proper-rendering-fix.html
 	// Restore State
@@ -37,9 +39,12 @@ HRESULT __stdcall hooks::hkEndScene(IDirect3DDevice9* device) {
 
 void hooks::initialise() {
 	Interfaces.initialise();
+	RenderManager.initialise();
 	const auto endscene_target = reinterpret_cast<void*>(get_virtual(Interfaces.g_D3DDevice9, 42));
 
 	if (MH_CreateHook(endscene_target, &hkEndScene, reinterpret_cast<void**>(&endscene_original)) != MH_OK)
 		throw std::runtime_error("failed to initialize endscene. (outdated index?)");
 
+	if (MH_EnableHook(MH_ALL_HOOKS) != MH_OK)
+		throw std::runtime_error("failed to enable hooks.");
 }
