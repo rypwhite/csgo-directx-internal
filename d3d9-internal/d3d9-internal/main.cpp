@@ -1,6 +1,8 @@
 #include <Windows.h>
 #include <iostream>
 
+#include "hooks.h"
+
 DWORD WINAPI DllThread(PVOID pThreadParameter)
 {
     //wait until all modules are loaded into the game (serverbrowser.dll is the last one)
@@ -13,6 +15,11 @@ DWORD WINAPI DllThread(PVOID pThreadParameter)
     freopen_s((FILE**)stdin, "CONIN$", "r", stdin);
     freopen_s((FILE**)stdin, "CONOUT$", "w", stdout);
     freopen_s((FILE**)stdin, "CONOUT$", "w", stderr);
+
+    if (MH_Initialize() != MH_OK)
+        throw std::runtime_error("failed to initialize MH_Initialize.");
+
+    hooks::initialise();
 
     std::cout << "Console allocated" << std::endl;
 
