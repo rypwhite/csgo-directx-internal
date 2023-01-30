@@ -67,7 +67,7 @@ namespace visuals {
 				continue;
 
 			if (WorldToScreen(Entity->m_vecOrigin(), player)) {
-				RenderManager.DrawLine(x / 2, y - 100, player.x, player.y, D3DCOLOR_ARGB(255, 255, 0, 0));
+                RenderManager.DrawLine(x / 2, y, player.x, player.y, D3DCOLOR_ARGB(100, 255, 255, 255));
 
 				//Interfaces.g_pEngineClient->GetPlayerInfo(i, &info);
 				//RenderManager.DrawText(player.x, player.y, D3DCOLOR_ARGB(255, 255, 0, 0), info.szName);

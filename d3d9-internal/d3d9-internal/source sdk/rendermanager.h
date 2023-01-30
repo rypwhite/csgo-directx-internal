@@ -15,7 +15,7 @@ public:
         device = Interfaces.g_D3DDevice9;
 
         //create the font object
-        D3DXCreateFont(device, 17, 0, FW_MEDIUM, 1, 0, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, ANTIALIASED_QUALITY, DEFAULT_PITCH | FF_DONTCARE, L"Bahnschrift", &font);
+        D3DXCreateFont(device, 16, 0, FW_EXTRALIGHT, 1, 0, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, ANTIALIASED_QUALITY, DEFAULT_PITCH | FF_DONTCARE, L"Arial", &font);
 
         //create the line object
         D3DXCreateLine(device, &line);

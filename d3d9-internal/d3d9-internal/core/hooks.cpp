@@ -26,7 +26,7 @@ HRESULT __stdcall hooks::hkEndScene(IDirect3DDevice9* device) {
 	device->SetSamplerState(NULL, D3DSAMP_SRGBTEXTURE, NULL);
 
 	//surface is ready for rendering
-	RenderManager.DrawText(5, 5, D3DCOLOR_ARGB(255, 255, 0, 0), "CSGO D3D9 Example");
+	RenderManager.DrawText(5, 5, D3DCOLOR_ARGB(100, 255, 255, 255), "CSGO D3D9 Example");
 
 	if (Interfaces.g_pEngineClient->IsInGame() && Interfaces.g_pEngineClient->IsConnected()) {
 		visuals::onEndScene();
