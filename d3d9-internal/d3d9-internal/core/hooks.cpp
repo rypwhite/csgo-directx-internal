@@ -1,4 +1,5 @@
 #include "hooks.h"
+#include "../hacks/visuals.h"
 
 CInterfaces Interfaces;
 CRenderManager RenderManager;
@@ -28,17 +29,7 @@ HRESULT __stdcall hooks::hkEndScene(IDirect3DDevice9* device) {
 	RenderManager.DrawText(5, 5, D3DCOLOR_ARGB(255, 255, 0, 0), "CSGO D3D9 Example");
 
 	if (Interfaces.g_pEngineClient->IsInGame() && Interfaces.g_pEngineClient->IsConnected()) {
-		CBaseEntity* Local = (CBaseEntity*)Interfaces.g_pEntityList->GetClientEntity(Interfaces.g_pEngineClient->GetLocalPlayer());
-		player_info_t info;
-
-		for (int i = 0; i < 64; i++) {
-			CBaseEntity* Entity = (CBaseEntity*)Interfaces.g_pEntityList->GetClientEntity(i);
-			if (!Entity || Entity->m_iHealth() < 0)
-				continue;
-
-			Interfaces.g_pEngineClient->GetPlayerInfo(i, &info);
-			RenderManager.DrawText(50, 25 * i, D3DCOLOR_ARGB(255, 255, 0, 0), info.szName);
-		}
+		visuals::onEndScene();
 	}
 
 	//https://www.unknowncheats.me/forum/counterstrike-global-offensive/292735-panorama-proper-rendering-fix.html

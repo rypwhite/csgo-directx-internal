@@ -10,15 +10,18 @@
     <Filter Include="core">
       <UniqueIdentifier>{fe951998-4fa8-4637-85ff-24441db2a6f6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="utils">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="source sdk">
       <UniqueIdentifier>{bb0cbc7f-1cb1-4978-9a9a-4a9996d3c0e4}</UniqueIdentifier>
     </Filter>
     <Filter Include="source sdk\classes">
       <UniqueIdentifier>{34dfb72c-4370-49f4-bb79-40c0cfadc351}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hacks">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="source sdk\math">
+      <UniqueIdentifier>{c62be084-3ae6-45e8-893a-8ffbe7a99d53}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -43,6 +46,9 @@
     </ClCompile>
     <ClCompile Include="source sdk\sdk.cpp">
       <Filter>source sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="source sdk\math\vmatrix.cpp">
+      <Filter>source sdk\math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -70,9 +76,6 @@
     <ClInclude Include="minhook\hde\table64.h">
       <Filter>minhook\hde</Filter>
     </ClInclude>
-    <ClInclude Include="rendermanager.h">
-      <Filter>utils</Filter>
-    </ClInclude>
     <ClInclude Include="core\hooks.h">
       <Filter>core</Filter>
     </ClInclude>
@@ -93,6 +96,21 @@
     </ClInclude>
     <ClInclude Include="source sdk\classes\IBaseClientDLL.h">
       <Filter>source sdk\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="hacks\visuals.h">
+      <Filter>hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="source sdk\rendermanager.h">
+      <Filter>source sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="source sdk\math\qangle.h">
+      <Filter>source sdk\math</Filter>
+    </ClInclude>
+    <ClInclude Include="source sdk\math\vmatrix.h">
+      <Filter>source sdk\math</Filter>
+    </ClInclude>
+    <ClInclude Include="source sdk\math\vector.h">
+      <Filter>source sdk\math</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

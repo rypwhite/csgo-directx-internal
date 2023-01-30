@@ -4,9 +4,10 @@
 #include <stdexcept>
 
 #include "../source sdk/sdk.h"
-#include "../utils/rendermanager.h"
+#include "../source sdk/rendermanager.h"
 
 #include "../minhook/MinHook.h"
+#include "../source sdk/math.h"
 
 namespace hooks {
 	void initialise();

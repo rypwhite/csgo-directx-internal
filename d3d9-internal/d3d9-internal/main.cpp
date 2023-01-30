@@ -21,8 +21,6 @@ DWORD WINAPI DllThread(PVOID pThreadParameter)
 
     hooks::initialise();
 
-    std::cout << "Console allocated" << std::endl;
-
     return TRUE;
 }
 
