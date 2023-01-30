@@ -1,4 +1,5 @@
 #pragma once
+#define _CRT_SECURE_NO_WARNINGS
 #include <windows.h>
 #include <iostream>
 #include <stdio.h>
@@ -17,7 +18,9 @@ public:
 	IVEngineClient* g_pEngineClient = nullptr;
 
 	void initialise();
-	std::uint8_t* pattern(void* module, const char* signature);
+
+	std::uint8_t* scanPattern(void* module, const char* signature);
+	void* scanInterface(const char* Module, const char* InterfaceName);
 };
 
 extern CInterfaces Interfaces;

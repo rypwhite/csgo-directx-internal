@@ -2,10 +2,10 @@
 
 void CInterfaces::initialise() {
 
-	g_D3DDevice9 = **(IDirect3DDevice9***)(pattern(GetModuleHandleW(L"shaderapidx9.dll"), "A1 ? ? ? ? 50 8B 08 FF 51 0C") + 1);
+	g_D3DDevice9 = **(IDirect3DDevice9***)(scanPattern(GetModuleHandleW(L"shaderapidx9.dll"), "A1 ? ? ? ? 50 8B 08 FF 51 0C") + 1);
 }
 
-std::uint8_t* CInterfaces::pattern(void* module, const char* signature) {
+std::uint8_t* CInterfaces::scanPattern(void* module, const char* signature) {
 	static auto pattern_to_byte = [](const char* pattern) {
 		auto bytes = std::vector<int>{};
 		auto start = const_cast<char*>(pattern);
@@ -48,4 +48,29 @@ std::uint8_t* CInterfaces::pattern(void* module, const char* signature) {
 		}
 	}
 	return nullptr;
+}
+
+typedef void* (*createInterface)(const char* Name, int* ReturnCode);
+void* CInterfaces::scanInterface(const char* Module, const char* InterfaceName)
+{
+	void* Interface = nullptr;
+	auto CreateInterface = reinterpret_cast<createInterface>(GetProcAddress(GetModuleHandleA(Module), "CreateInterface"));
+
+	char PossibleInterfaceName[1024];
+	for (int i = 1; i < 100; i++)
+	{
+		sprintf(PossibleInterfaceName, "%s0%i", InterfaceName, i);
+		Interface = CreateInterface(PossibleInterfaceName, 0);
+		if (Interface)
+			break;
+
+		sprintf(PossibleInterfaceName, "%s00%i", InterfaceName, i);
+		Interface = CreateInterface(PossibleInterfaceName, 0);
+		if (Interface) {
+			std::cout << InterfaceName << " 0x" << Interface << std::endl;
+			break;
+		}
+	}
+
+	return Interface;
 }
