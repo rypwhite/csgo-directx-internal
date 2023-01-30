@@ -82,5 +82,8 @@
     <ClInclude Include="source sdk\classes\IVEngineClient.h">
       <Filter>source sdk\classes</Filter>
     </ClInclude>
+    <ClInclude Include="source sdk\math.h">
+      <Filter>source sdk</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

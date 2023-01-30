@@ -164,6 +164,7 @@
     <ClInclude Include="minhook\trampoline.h" />
     <ClInclude Include="rendermanager.h" />
     <ClInclude Include="source sdk\classes\IVEngineClient.h" />
+    <ClInclude Include="source sdk\math.h" />
     <ClInclude Include="source sdk\sdk.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -3,6 +3,7 @@
 void CInterfaces::initialise() {
 
 	g_D3DDevice9 = **(IDirect3DDevice9***)(scanPattern(GetModuleHandleW(L"shaderapidx9.dll"), "A1 ? ? ? ? 50 8B 08 FF 51 0C") + 1);
+	g_pEngineClient = reinterpret_cast<IVEngineClient*>(scanInterface("engine.dll", "VEngineClient"));
 }
 
 std::uint8_t* CInterfaces::scanPattern(void* module, const char* signature) {
