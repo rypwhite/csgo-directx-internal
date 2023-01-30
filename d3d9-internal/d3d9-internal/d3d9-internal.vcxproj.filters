@@ -17,6 +17,9 @@
     <Filter Include="source sdk">
       <UniqueIdentifier>{bb0cbc7f-1cb1-4978-9a9a-4a9996d3c0e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source sdk\classes">
+      <UniqueIdentifier>{34dfb72c-4370-49f4-bb79-40c0cfadc351}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="minhook\buffer.c">
@@ -75,6 +78,9 @@
     </ClInclude>
     <ClInclude Include="source sdk\sdk.h">
       <Filter>source sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="source sdk\classes\IVEngineClient.h">
+      <Filter>source sdk\classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
