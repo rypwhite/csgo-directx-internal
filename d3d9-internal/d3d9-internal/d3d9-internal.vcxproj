@@ -164,6 +164,7 @@
     <ClInclude Include="minhook\trampoline.h" />
     <ClInclude Include="rendermanager.h" />
     <ClInclude Include="source sdk\classes\CEntity.h" />
+    <ClInclude Include="source sdk\classes\IBaseClientDLL.h" />
     <ClInclude Include="source sdk\classes\IClientEntityList.h" />
     <ClInclude Include="source sdk\classes\IVEngineClient.h" />
     <ClInclude Include="source sdk\math.h" />

@@ -12,12 +12,16 @@
 
 #include "classes/IVEngineClient.h"
 #include "classes/IClientEntityList.h"
+#include "classes/IBaseClientDLL.h"
+
+#include "classes/CEntity.h"
 
 class CInterfaces {
 public:
 	IDirect3DDevice9* g_D3DDevice9 = nullptr;
 	IVEngineClient* g_pEngineClient = nullptr;
 	IClientEntityList* g_pEntityList = nullptr;
+	IBaseClientDLL* g_pClient = nullptr;
 
 	void initialise();
 

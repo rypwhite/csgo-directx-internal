@@ -91,5 +91,8 @@
     <ClInclude Include="source sdk\classes\IClientEntityList.h">
       <Filter>source sdk\classes</Filter>
     </ClInclude>
+    <ClInclude Include="source sdk\classes\IBaseClientDLL.h">
+      <Filter>source sdk\classes</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

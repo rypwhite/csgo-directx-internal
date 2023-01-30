@@ -28,7 +28,21 @@ HRESULT __stdcall hooks::hkEndScene(IDirect3DDevice9* device) {
 	RenderManager.DrawText(25, 25, D3DCOLOR_ARGB(255, 255, 0, 0), "CSGO D3D9 Example");
 
 	if (Interfaces.g_pEngineClient->IsInGame() && Interfaces.g_pEngineClient->IsConnected()) {
-		
+		CBaseEntity* Local = (CBaseEntity*)Interfaces.g_pEntityList->GetClientEntity(Interfaces.g_pEngineClient->GetLocalPlayer());
+		player_info_t info;
+
+		for (int i = 0; i < 64; i++) {
+			CBaseEntity* Entity = (CBaseEntity*)Interfaces.g_pEntityList->GetClientEntity(i);
+			if (!Entity)
+				continue;
+
+			if (Entity == Local) {
+				Interfaces.g_pEngineClient->GetPlayerInfo(i, &info);
+				RenderManager.DrawText(25, 55, D3DCOLOR_ARGB(255, 255, 0, 0), info.szName);
+
+			}
+		}
+
 		RenderManager.DrawText(25, 55, D3DCOLOR_ARGB(255, 255, 0, 0), "In Game");
 	}
 
