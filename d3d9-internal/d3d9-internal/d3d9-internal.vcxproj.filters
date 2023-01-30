@@ -14,6 +14,9 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="source sdk">
+      <UniqueIdentifier>{bb0cbc7f-1cb1-4978-9a9a-4a9996d3c0e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="minhook\buffer.c">
@@ -35,8 +38,8 @@
     <ClCompile Include="core\hooks.cpp">
       <Filter>core</Filter>
     </ClCompile>
-    <ClCompile Include="core\interfaces.cpp">
-      <Filter>core</Filter>
+    <ClCompile Include="source sdk\sdk.cpp">
+      <Filter>source sdk</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -70,8 +73,8 @@
     <ClInclude Include="core\hooks.h">
       <Filter>core</Filter>
     </ClInclude>
-    <ClInclude Include="core\interfaces.h">
-      <Filter>core</Filter>
+    <ClInclude Include="source sdk\sdk.h">
+      <Filter>source sdk</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

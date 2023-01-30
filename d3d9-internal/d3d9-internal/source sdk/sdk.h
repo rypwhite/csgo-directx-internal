@@ -11,10 +11,10 @@
 
 class CInterfaces {
 public:
+	IDirect3DDevice9* g_D3DDevice9 = nullptr;
+
 	void initialise();
 	std::uint8_t* pattern(void* module, const char* signature);
-	
-	IDirect3DDevice9* g_D3DDevice9 = nullptr;
 };
 
 extern CInterfaces Interfaces;

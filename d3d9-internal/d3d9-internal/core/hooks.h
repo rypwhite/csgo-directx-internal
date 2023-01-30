@@ -3,7 +3,7 @@
 #include <d3dx9.h>
 #include <stdexcept>
 
-#include "interfaces.h"
+#include "../source sdk/sdk.h"
 #include "../utils/rendermanager.h"
 
 #include "../minhook/MinHook.h"
