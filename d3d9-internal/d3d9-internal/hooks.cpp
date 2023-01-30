@@ -3,7 +3,7 @@
 CInterfaces Interfaces;
 CRenderManager RenderManager;
 
-hooks::EndScene_t endscene_original = nullptr;
+hooks::EndScene_t EndScene_o = nullptr;
 
 //https://learn.microsoft.com/en-us/windows/win32/api/d3d9/nf-d3d9-idirect3ddevice9-endscene
 HRESULT __stdcall hooks::hkEndScene(IDirect3DDevice9* device) {
@@ -34,7 +34,7 @@ HRESULT __stdcall hooks::hkEndScene(IDirect3DDevice9* device) {
 	device->SetVertexDeclaration(vert_declaration);
 	device->SetVertexShader(vert_shader);
 
-	return endscene_original(Interfaces.g_D3DDevice9, device);
+	return EndScene_o(Interfaces.g_D3DDevice9, device);
 }
 
 void hooks::initialise() {
@@ -42,7 +42,7 @@ void hooks::initialise() {
 	RenderManager.initialise();
 	const auto endscene_target = reinterpret_cast<void*>(get_virtual(Interfaces.g_D3DDevice9, 42));
 
-	if (MH_CreateHook(endscene_target, &hkEndScene, reinterpret_cast<void**>(&endscene_original)) != MH_OK)
+	if (MH_CreateHook(endscene_target, &hkEndScene, reinterpret_cast<void**>(&EndScene_o)) != MH_OK)
 		throw std::runtime_error("failed to initialize endscene. (outdated index?)");
 
 	if (MH_EnableHook(MH_ALL_HOOKS) != MH_OK)
