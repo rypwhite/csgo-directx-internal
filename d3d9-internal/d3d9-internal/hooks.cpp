@@ -26,9 +26,6 @@ HRESULT __stdcall hooks::hkEndScene(IDirect3DDevice9* device) {
 
 	//surface is ready for rendering
 	RenderManager.DrawText(25, 25, D3DCOLOR_ARGB(255, 255, 0, 0), "CSGO D3D9 Example");
-	RenderManager.DrawLine(30, 30, 50, 30, D3DCOLOR_ARGB(255, 255, 0, 0));
-	RenderManager.DrawFilledRectangle(40, 40, 50, 20, D3DCOLOR_ARGB(255, 255, 0, 0));
-	RenderManager.DrawBox(80, 80, 50, 20, D3DCOLOR_ARGB(255, 255, 0, 0));
 
 	//https://www.unknowncheats.me/forum/counterstrike-global-offensive/292735-panorama-proper-rendering-fix.html
 	// Restore State

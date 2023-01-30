@@ -33,7 +33,7 @@ public:
         line->End();
     }
 
-    void DrawBox(int x, int y, int w, int h, DWORD color) {
+    void DrawOutlinedRectangle(int x, int y, int w, int h, DWORD color) {
         DrawLine(x, y, x + w, y, color);
         DrawLine(x, y, x, y + h, color);
         DrawLine(x + w, y, x + w, y + h, color);
@@ -42,15 +42,6 @@ public:
 
     void DrawFilledRectangle(int x, int y, int w, int h, DWORD color) {
         D3DRECT rect = { x, y, x + w, y + h };
-        device->Clear(1, &rect, D3DCLEAR_TARGET, color, 0, 0);
-    }
-
-    void DrawOutlinedRectangle(int x, int y, int w, int h, DWORD color) {
-        D3DRECT rect;
-        rect.x1 = x;
-        rect.y1 = y;
-        rect.x2 = x + w;
-        rect.y2 = y + h;
         device->Clear(1, &rect, D3DCLEAR_TARGET, color, 0, 0);
     }
 };
