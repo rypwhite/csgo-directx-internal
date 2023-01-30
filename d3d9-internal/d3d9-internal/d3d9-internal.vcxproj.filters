@@ -85,5 +85,11 @@
     <ClInclude Include="source sdk\math.h">
       <Filter>source sdk</Filter>
     </ClInclude>
+    <ClInclude Include="source sdk\classes\CEntity.h">
+      <Filter>source sdk\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="source sdk\classes\IClientEntityList.h">
+      <Filter>source sdk\classes</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

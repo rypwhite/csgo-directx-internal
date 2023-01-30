@@ -4,6 +4,7 @@ void CInterfaces::initialise() {
 
 	g_D3DDevice9 = **(IDirect3DDevice9***)(scanPattern(GetModuleHandleW(L"shaderapidx9.dll"), "A1 ? ? ? ? 50 8B 08 FF 51 0C") + 1);
 	g_pEngineClient = reinterpret_cast<IVEngineClient*>(scanInterface("engine.dll", "VEngineClient"));
+	g_pEntityList = reinterpret_cast<IClientEntityList*>(scanInterface("client.dll", "VClientEntityList"));
 }
 
 std::uint8_t* CInterfaces::scanPattern(void* module, const char* signature) {
@@ -62,8 +63,10 @@ void* CInterfaces::scanInterface(const char* Module, const char* InterfaceName)
 	{
 		sprintf(PossibleInterfaceName, "%s0%i", InterfaceName, i);
 		Interface = CreateInterface(PossibleInterfaceName, 0);
-		if (Interface)
+		if (Interface) {
+			std::cout << InterfaceName << " 0x" << Interface << std::endl;
 			break;
+		}
 
 		sprintf(PossibleInterfaceName, "%s00%i", InterfaceName, i);
 		Interface = CreateInterface(PossibleInterfaceName, 0);

@@ -28,6 +28,7 @@ HRESULT __stdcall hooks::hkEndScene(IDirect3DDevice9* device) {
 	RenderManager.DrawText(25, 25, D3DCOLOR_ARGB(255, 255, 0, 0), "CSGO D3D9 Example");
 
 	if (Interfaces.g_pEngineClient->IsInGame() && Interfaces.g_pEngineClient->IsConnected()) {
+		
 		RenderManager.DrawText(25, 55, D3DCOLOR_ARGB(255, 255, 0, 0), "In Game");
 	}
 

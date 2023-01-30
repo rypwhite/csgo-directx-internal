@@ -33,7 +33,6 @@ struct Frustum_t;
 
 typedef void(*pfnDemoCustomDataCallback)(uint8_t* pData, size_t iSize);
 
-
 typedef struct player_info_s
 {
 	__int64         unknown;            //0x0000 
