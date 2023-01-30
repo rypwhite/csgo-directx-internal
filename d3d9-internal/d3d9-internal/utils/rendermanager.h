@@ -2,7 +2,7 @@
 #include <d3d9.h>
 #include <d3dx9.h>
 
-#include "interfaces.h"
+#include "../core/interfaces.h"
 
 class CRenderManager {
 public:

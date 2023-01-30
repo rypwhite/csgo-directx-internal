@@ -4,9 +4,9 @@
 #include <stdexcept>
 
 #include "interfaces.h"
-#include "rendermanager.h"
+#include "../utils/rendermanager.h"
 
-#include "minhook/MinHook.h"
+#include "../minhook/MinHook.h"
 
 namespace hooks {
 	void initialise();

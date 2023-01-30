@@ -1,7 +1,7 @@
 #include <Windows.h>
 #include <iostream>
 
-#include "hooks.h"
+#include "core/hooks.h"
 
 DWORD WINAPI DllThread(PVOID pThreadParameter)
 {
